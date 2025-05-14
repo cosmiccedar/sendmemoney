@@ -94,7 +94,7 @@
   <p id="retirement-total" style="margin-top: 10px; font-size: 1.1em;"></p>
 
   <!-- Buttons -->
-  <button onclick="playChaChing()" style="margin-top: 20px; padding: 10px 20px; font-size: 1.2em; background: gold; border: 2px solid #444; border-radius: 8px; cursor: pointer;">
+  <button onclick="scrollToPayments()" style="margin-top: 20px; padding: 10px 20px; font-size: 1.2em; background: gold; border: 2px solid #444; border-radius: 8px; cursor: pointer;">
     Help Me Retire
   </button>
 
@@ -107,7 +107,7 @@
   </button>
 
   <!-- Wallets -->
-  <div class="wallet">
+  <div class="wallet" id="payment-options">
     <h2>Bitcoin (BTC)</h2>
     <p>bc1qexamplebtcaddress12345</p>
     <img class="qr" src="btc_qr.png" alt="BTC QR Code">
@@ -213,6 +213,11 @@
       const sound = document.getElementById('cha-ching-sound');
       sound.currentTime = 0;
       sound.play();
+    }
+
+    function scrollToPayments() {
+      document.getElementById('payment-options').scrollIntoView({ behavior: 'smooth' });
+      playChaChing();
     }
 
     function contributeEmotionally() {
